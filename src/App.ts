@@ -11,24 +11,22 @@ const Record = seq.define("Records", {
         autoIncrement: true
     },
     SourceId: Sequelize.INTEGER,
-    FileName: Sequelize.STRING,
-    Path: Sequelize.STRING,
-    User: Sequelize.STRING,
+    FileName: Sequelize.TEXT,
+    Path: Sequelize.TEXT,
+    User: Sequelize.TEXT,
     Uploaddate: Sequelize.DATE,
-    Uuid: Sequelize.STRING,
+    Uuid: Sequelize.TEXT,
     UploadStatus: Sequelize.INTEGER,
-    CDocumentType: Sequelize.STRING,
-    CExportEntryNo: Sequelize.STRING,
-    CInvoiceNo: Sequelize.STRING,
+    CDocumentType: Sequelize.TEXT,
+    CExportEntryNo: Sequelize.TEXT,
+    CInvoiceNo: Sequelize.TEXT,
     CPiDate: Sequelize.DATE,
-    CPiNo: Sequelize.STRING,
+    CPiNo: Sequelize.TEXT,
     CEtdDate: Sequelize.DATE,
-    CPoNo: Sequelize.STRING,
+    CPoNo: Sequelize.TEXT,
     CSystemDate: Sequelize.DATE
 }, { timestamps: false });
 
-seq.sync().then((rs => {
-    console.log(rs);
-})).error(err => {
-    console.error(err);
-})
+(async () => {
+    var rs = await seq.sync()
+})();
